@@ -29,7 +29,7 @@ public class Util {
         return matcher.matches();
     }
     public static boolean validatorTelefone(String telefone){
-        String regex = "^\\d{3}\\s\\d{8}$";
+        String regex = "^\\d{2}\\s\\d{8}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(telefone);
         return matcher.matches();
