@@ -1,0 +1,48 @@
+<div class="container">
+    <form (ngSubmit)="submitForm()" [formGroup]="contatoFormEditar" #formDir="ngForm">
+        <div class="form">
+
+            <div class="form-container">
+
+                <input type="text"  formControlName="nome" required placeholder="Digite o nome">
+                <div *ngIf="nome.invalid && formDir.submitted" class="error">
+                    <p *ngIf="nome.errors?.['required']">Nome é obrigatorio</p>
+                </div>
+                
+               
+
+                <input type="text" formControlName="cep" required placeholder="Digite o cep">
+                <div *ngIf="cep.invalid && formDir.submitted" class="error">
+                    <p *ngIf="cep.errors?.['required']">Cep é obrigatorio</p>
+                </div>
+                <input type="tel" formControlName="telefone" required placeholder="Digite o telefone DDD 00000000">
+                <div *ngIf="telefone.invalid && formDir.submitted" class="error">
+                    <p *ngIf="telefone.errors?.['required']">Telefone é obrigatorio</p>
+                </div>
+               
+
+
+
+            </div>
+            <div>
+                <button type="submit">Salvar</button>
+            </div>
+        </div>
+
+
+    </form>
+    <div>
+        <div *ngIf="sucesso" class="modal">
+            <div>
+                <p>{{msgSucesso}}</p>
+            </div>
+        </div>
+
+        <div *ngIf="erroModal" class="modal">
+            <div>
+                <p>{{msgErro}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Contato } from 'src/app/model/Contato';
 import { ContatoService } from 'src/app/services/contato.service';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private service: ContatoService, private router: Router) { }
   isVisible = false;
+  isVisibleEditar = false;
 
   fraseDelete: string = "Tem certeza de que deseja excluir esse contato?"
   id: string = "";
@@ -56,6 +58,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
+ 
 
 }

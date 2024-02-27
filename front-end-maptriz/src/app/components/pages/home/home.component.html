@@ -22,7 +22,7 @@
                 <td>{{item.cep}}</td>
                 <td>{{item.telefone}}</td>
                 <td>{{item.tipoPessoa}}</td>
-                <td><button class="btn-editar" routerLink="">EDITAR</button></td>
+                <td><button class="btn-editar" routerLink="/editar-contato/{{item.id}}">EDITAR</button></td>
                 <td><button class="btn-excluir" (click)="excluir(item.id)">EXCLUIR</button></td>
             </tr>
         </table>

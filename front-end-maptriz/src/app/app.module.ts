@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { NovoContatoComponent } from './components/pages/novo-contato/novo-contato.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
+import { EditarContatoComponent } from './components/pages/editar-contato/editar-contato.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ModalComponent } from './components/modal/modal.component';
     HeaderComponent,
     NovoContatoComponent,
     ModalComponent,
+    EditarContatoComponent,
   ],
   imports: [
     BrowserModule,
