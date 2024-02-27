@@ -63,4 +63,10 @@ public class ContatoController {
         return ResponseEntity.ok().body("Contato deletado com sucesso");
     }
 
+
+    @GetMapping("/filtro")
+    public ResponseEntity<List<ContatoDto>> getFiltro(){
+        return ResponseEntity.ok().body(service.getFiltro());
+    }
+
 }

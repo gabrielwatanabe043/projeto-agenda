@@ -92,6 +92,19 @@ public class ContatoService {
         repository.deleteById(id);
     }
 
+    public List<ContatoDto> getFiltro() {
+        List<ContatoDto> list = new ArrayList<>();
+
+       List<Contato> listaContato =  repository.findAll();
+        for (Contato contato: listaContato){
+            if(contato.getTipoPessoa().ordinal() == 0 && contato.getNumeroDocumento().startsWith("018.")){
+                list.add(new ContatoDto(contato.getId(), contato.getNome(), contato.getCep(), contato.getTelefone(), contato.getTipoPessoa()));
+            }
+        }
+
+
+        return list;
+    }
 
 
 
