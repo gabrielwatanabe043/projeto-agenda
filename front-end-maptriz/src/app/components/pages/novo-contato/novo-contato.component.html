@@ -1,1 +1,59 @@
-<p>novo-contato works!</p>
+<div class="container">
+    <form (ngSubmit)="submitForm()" [formGroup]="contatoForm" #formDir="ngForm">
+        <div class="form">
+
+            <div class="form-container">
+
+                <input type="text" formControlName="nome" required placeholder="Digite o nome">
+                <div *ngIf="nome.invalid && formDir.submitted" class="error">
+                    <p *ngIf="nome.errors?.['required']">Nome é obrigatorio</p>
+                </div>
+                
+                <input type="text" formControlName="numeroDocumento" required placeholder="Digite número do documento">
+                <div *ngIf="numeroDocumento.invalid && formDir.submitted" class="error">
+                    <p *ngIf="numeroDocumento.errors?.['required']">Numero documento é obrigatorio</p>
+                </div>
+
+                <input type="text" formControlName="cep" required placeholder="Digite o cep">
+                <div *ngIf="cep.invalid && formDir.submitted" class="error">
+                    <p *ngIf="cep.errors?.['required']">Cep é obrigatorio</p>
+                </div>
+                <input type="tel" formControlName="telefone" required placeholder="Digite o telefone DDD 00000000">
+                <div *ngIf="telefone.invalid && formDir.submitted" class="error">
+                    <p *ngIf="telefone.errors?.['required']">Telefone é obrigatorio</p>
+                </div>
+                <div>
+
+                    <input type="radio" formControlName="tipoPessoa" value="PESSOAFISICA"> Pessoa Fisica
+
+                    <input type="radio" formControlName="tipoPessoa" value="PESSOAJURIDICA"> Pessoa Juridica
+                    <div *ngIf="tipoPessoa.invalid && formDir.submitted" class="error">
+                        <p *ngIf="tipoPessoa.errors?.['required']">Tipo é obrigatorio</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div>
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
+
+
+    </form>
+    <div>
+        <div *ngIf="sucesso" class="modal">
+            <div>
+                <p>Sucesso ao salvar</p>
+            </div>
+        </div>
+
+        <div *ngIf="erroModal" class="modal">
+            <div>
+                <p>{{msgErro}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

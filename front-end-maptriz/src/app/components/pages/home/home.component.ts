@@ -10,15 +10,19 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: ContatoService,private router: Router) { }
-  contatos:Contato[] = [];
-  contatosfiltro:Contato[] = [];
+  constructor(private service: ContatoService, private router: Router) { }
+  isVisible = false;
+
+  fraseDelete: string = "Tem certeza de que deseja excluir esse contato?"
+  id: string = "";
+  contatos: Contato[] = [];
+  contatosfiltro: Contato[] = [];
   termoBusca: string = "";
   isChecked1: boolean = false;
   isChecked2: boolean = false;
 
   ngOnInit(): void {
-   this.carregarContatos();
+    this.carregarContatos();
   }
 
   carregarContatos(): void {
@@ -28,23 +32,30 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  filtro(){
-    if(this.isChecked1 == true && this.isChecked2 == true || this.isChecked1 == false && this.isChecked2 == false){
+  filtro() {
+    if (this.isChecked1 == true && this.isChecked2 == true || this.isChecked1 == false && this.isChecked2 == false) {
       this.contatos = this.contatosfiltro.filter((contato => contato.nome.toLowerCase().includes(this.termoBusca.trim().toLowerCase())))
-    }else if(this.isChecked1 == true && this.isChecked2 == false){
+    } else if (this.isChecked1 == true && this.isChecked2 == false) {
       this.contatos = this.contatosfiltro.filter((contato => contato.tipoPessoa == "PESSOAFISICA" && contato.nome.toLowerCase().includes(this.termoBusca.trim().toLowerCase())))
-    }else{
+    } else {
       this.contatos = this.contatosfiltro.filter((contato => contato.tipoPessoa == "PESSOAJURIDICA" && contato.nome.toLowerCase().includes(this.termoBusca.trim().toLowerCase())))
     }
-    
+
+  }
+  excluir(id: string) {
+    this.isVisible = true;
+    this.id = id;
+  }
+  confirmacao(value: any) {
+    if (value) {
+      this.service.deleteContato(this.id).subscribe()
+      this.isVisible = false;
+      window.location.reload()
+    } else {
+      this.isVisible = false;
+    }
   }
 
-   excluir(id:string){
-    if(id) {
-      this.service.deleteContato(id).subscribe();
-      window.location.reload();
-    }
-   
-   
-  }
+
+
 }

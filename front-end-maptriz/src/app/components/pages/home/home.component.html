@@ -1,9 +1,12 @@
 <div class="home-container">
+    <div class="modal" *ngIf="isVisible">
+        <app-modal [frase]="fraseDelete" (confirm)="confirmacao($event)"></app-modal>
+    </div>
     <div class="busca">
         <input type="text" name="" id="" placeholder="Busque pelo nome do contato" [(ngModel)]="termoBusca">
         <input type="checkbox" [(ngModel)]="isChecked1" name="checkbox1"> PF
         <input type="checkbox" [(ngModel)]="isChecked2" name="checkbox2"> PJ
-        <button class="btn-busca" (click)="filtro()" >Buscar</button>
+        <button class="btn-busca" (click)="filtro()">Buscar</button>
         <button class="btn-cadastrar" routerLink="/novo-contato">Cadastrar</button>
     </div>
     <div *ngIf="contatos.length != 0  else semContato">
@@ -19,17 +22,18 @@
                 <td>{{item.cep}}</td>
                 <td>{{item.telefone}}</td>
                 <td>{{item.tipoPessoa}}</td>
-                <td><button class="btn-editar">EDITAR</button></td>
-                <td><button class="btn-excluir" (click)="excluir(item.id)" >EXCLUIR</button></td>
+                <td><button class="btn-editar" routerLink="">EDITAR</button></td>
+                <td><button class="btn-excluir" (click)="excluir(item.id)">EXCLUIR</button></td>
             </tr>
         </table>
     </div>
+
 </div>
-<ng-template  #semContato >
+<ng-template #semContato>
     <div class="semContato">
         <h2>
             Nenhum contato cadastrado
         </h2>
     </div>
-    
+
 </ng-template>

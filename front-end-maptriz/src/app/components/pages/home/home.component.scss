@@ -1,120 +1,137 @@
 .home-container {
-    font-family: Arial, sans-serif;
-    width: 100%;
-  }
-  
-  .busca {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-  
-    input[type="text"] {
-      padding: 8px;
-      margin-right: 8px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-  
-    input[type="checkbox"] {
-      margin-right: 5px;
-    }
-  
-    
+  font-family: Arial, sans-serif;
+  width: 100%;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  /* Centraliza horizontalmente */
+  align-items: center;
+  /* Centraliza verticalmente */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.busca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+
+  input[type="text"] {
+    padding: 8px;
+    margin-right: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
   }
 
-  .btn-busca{
-    padding: 8px 16px;
+  input[type="checkbox"] {
     margin-right: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    
-  
-    &:hover {
-      background-color: #0056b3;
-    }
   }
 
-  .btn-cadastrar{
-    padding: 8px 16px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 5px;
-    background-color: #42ff03;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    
-  
-    &:hover {
-      background-color: #1a6302;
-    }
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: center;
-    }
-  
-    th {
-      background-color: #f2f2f2;
-    }
-    tr:hover {
-      background-color: #f2f2f2;
-    }
-   
-  }
-.btn-excluir{
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #f51d1d;
-    cursor: pointer;
-    transition: background-color 0.3s;
 
-    &:hover {
-        background-color: #420202;
-    }
+}
+
+.btn-busca {
+  padding: 8px 16px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.btn-cadastrar {
+  padding: 8px 16px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #42ff03;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+
+  &:hover {
+    background-color: #1a6302;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+
+  tr:hover {
+    background-color: #f2f2f2;
+  }
+
+}
+
+.btn-excluir {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #f51d1d;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #420202;
+  }
 }
 
 
-.btn-editar{
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #d4e300;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.btn-editar {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #d4e300;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
-    &:hover {
-        background-color: #838c03;
-    }
+  &:hover {
+    background-color: #838c03;
+  }
 }
 
-.semContato{
-    border-radius: 10px;
-    display: flex;
-    width: 60%;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
-    background-color: #ddd;
-    margin: auto;
-    
+.semContato {
+  border-radius: 10px;
+  display: flex;
+  width: 60%;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+  margin: auto;
+
 }
