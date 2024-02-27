@@ -38,13 +38,13 @@ public class ContatoService {
 
         Optional<Contato> contatoBD = repository.findById(id);
         if(contatoBD.isPresent()){
-            if(Util.validatorTelefone(contatoEdit.getTelefone())){
+            if(Util.validatorTelefone(contatoEdit.getTelefone()) && Util.validatorCep(contatoEdit.getCep())){
                 contatoBD.get().setNome(contatoEdit.getNome());
                 contatoBD.get().setCep(contatoEdit.getCep());
                 contatoBD.get().setTelefone(contatoEdit.getTelefone());
                 repository.save(contatoBD.get());
             }else{
-                throw new PadraoIncorreto("TELEFONE COM PADRÃO INCORRETO 'DDD XXXXXXXX'");
+                throw new PadraoIncorreto("TELEFONE COM PADRÃO INCORRETO 'DDD XXXXXXXX' OU CEP");
             }
 
         }else{
