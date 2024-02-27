@@ -38,10 +38,15 @@ public class ContatoService {
 
         Optional<Contato> contatoBD = repository.findById(id);
         if(contatoBD.isPresent()){
-            contatoBD.get().setNome(contatoEdit.getNome());
-            contatoBD.get().setCep(contatoEdit.getCep());
-            contatoBD.get().setTelefone(contatoEdit.getTelefone());
-            repository.save(contatoBD.get());
+            if(Util.validatorTelefone(contatoEdit.getTelefone())){
+                contatoBD.get().setNome(contatoEdit.getNome());
+                contatoBD.get().setCep(contatoEdit.getCep());
+                contatoBD.get().setTelefone(contatoEdit.getTelefone());
+                repository.save(contatoBD.get());
+            }else{
+                throw new PadraoIncorreto("TELEFONE COM PADRÃO INCORRETO 'DDD XXXXXXXX'");
+            }
+
         }else{
             throw new NoSuchElementException();
         }
@@ -57,6 +62,10 @@ public class ContatoService {
             }
             if(!Util.validatorCep(contato.getCep())){
                 throw new PadraoIncorreto("CEP COM PADRÃO INCORRETO");
+            }
+            if(!Util.validatorTelefone(contato.getTelefone())){
+                throw new PadraoIncorreto("TELEFONE COM PADRÃO INCORRETO 'DDD XXXXXXXX'");
+
             }else{
                 repository.save(contato);
             }
@@ -66,6 +75,10 @@ public class ContatoService {
             }
             if(!Util.validatorCep(contato.getCep())){
                 throw new PadraoIncorreto("CEP COM PADRÃO INCORRETO");
+            }
+            if(!Util.validatorTelefone(contato.getTelefone())){
+                throw new PadraoIncorreto("TELEFONE COM PADRÃO INCORRETO 'DDD XXXXXXXX'");
+
             }else{
                 repository.save(contato);
             }

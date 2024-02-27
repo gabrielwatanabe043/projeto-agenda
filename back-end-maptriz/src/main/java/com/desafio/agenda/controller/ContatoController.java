@@ -22,17 +22,22 @@ public class ContatoController {
     @Autowired
     private ContatoService service;
 
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<ContatoDto>> gettAllContato(){
         return ResponseEntity.ok().body(service.getAll());
     }
 
+
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping("/{id}")
     public ResponseEntity<ContatoDto> getContatoById(@PathVariable UUID id){
 
         return ResponseEntity.ok().body(service.getById(id));
     }
 
+
+    @CrossOrigin(origins = "*" )
     @PostMapping
     public ResponseEntity<String> createContato(@RequestBody Contato contato){
         service.createContato(contato);
@@ -43,12 +48,15 @@ public class ContatoController {
         return ResponseEntity.ok().body(response);
     }
 
+
+    @CrossOrigin(origins = "*" )
     @PutMapping("/{id}")
     public ResponseEntity<String> editContato(@PathVariable UUID id, @RequestBody ContatoDtoEdit contatoEdit){
         service.editContato(id,contatoEdit);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Contato atualizado com sucesso");
     }
 
+    @CrossOrigin(origins = "*" )
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteContato(@PathVariable UUID id){
         service.deleteContato(id);
